@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ReactorState } from 'src/app/models/app.enums.model';
+import { SteadyReactorStore } from '../steady-reactor/steady-reactor.store';
 
 @Component({
   selector: 'app-reactor-manager',
@@ -10,9 +11,13 @@ import { ReactorState } from 'src/app/models/app.enums.model';
 export class ReactorManagerComponent implements OnInit {
 
   public reactorState = ReactorState;
-  public globalReactorState = ReactorState.LOW_OUTPUT;
+  /* starting State of all Reactor output combined togehter */
+  public globalReactorState = ReactorState.LOW;
 
-  constructor() { }
+  constructor(private steadyReactorStore: SteadyReactorStore) { }
+
+  currentSteadyReactorState$ = this.steadyReactorStore.select((state) => state.currentState);
+
 
   ngOnInit(): void {
   }

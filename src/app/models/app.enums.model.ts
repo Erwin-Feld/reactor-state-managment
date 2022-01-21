@@ -1,2 +1,4 @@
 
-export enum ReactorState {NORMAL, OVERHEATING, LOW_OUTPUT}
+export enum ReactorState {NORMAL, OVERHEATING, LOW}
+
+
