@@ -27,11 +27,13 @@ export class GlobalStateService {
    * roundNumber function needed to avoid js floating point bug
    */
   addingReactorStates() {
-    return combineLatest([
+    const addedReacorStates = combineLatest([
       this.currentSteadyReactorState$,
       this.currentSwiftReactorState$,
     ])
       .pipe(map((values) => values.reduce(additionReducer)))
       .pipe(map((values) => roundNumber(values)));
+
+      return addedReacorStates
   }
 }
