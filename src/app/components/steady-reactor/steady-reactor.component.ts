@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-import { rndIntervalRate } from '../shared-functions';
 import { SteadyReactorStore } from './steady-reactor.store';
 
 @Component({
