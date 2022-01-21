@@ -1,15 +1,19 @@
 <div class="reactor-manager">
+    <h3>reactor manager</h3>
+
     <p>reactor one output</p>
 
-    <p>reactor two output</p>
+    <p>steady reactor output <span>{{currentSteadyReactorState$ | async}}</span></p>
 
     <p>reactor three output</p>
 
     <p>global output</p>
 
-    <p class="col" *ngIf="globalReactorState === reactorState.LOW_OUTPUT"> low</p>
+    <p class="col" *ngIf="globalReactorState === reactorState.LOW"> current global output <span>low</span></p>
     <p class="col" *ngIf="globalReactorState === reactorState.NORMAL"> normal</p>
     <p class="col" *ngIf="globalReactorState === reactorState.OVERHEATING"> overheating</p>
 </div>
+
+
 
 
