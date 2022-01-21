@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { GlobalStateService } from 'src/app/global-state.service';
 
 import { ReactorState } from 'src/app/models/app.enums.model';
+import { LambdaReactorStore } from '../lambda-reactor/lambda-reactor.store';
 import { SteadyReactorStore } from '../steady-reactor/steady-reactor.store';
 import { SwiftReactorStore } from '../swift-reactor/swift-reactor-store';
 
@@ -19,7 +20,8 @@ export class ReactorManagerComponent implements OnInit {
   constructor(
     private steadyReactorStore: SteadyReactorStore,
     private swiftReactorStore: SwiftReactorStore,
-    private globalStateService: GlobalStateService
+    private lambdaReactorStore: LambdaReactorStore,
+    private globalStateService: GlobalStateService,
   ) {}
 
   globalReactorState$!: Observable<number>;
@@ -29,6 +31,10 @@ export class ReactorManagerComponent implements OnInit {
   );
 
   currentSwiftReactorState$ = this.swiftReactorStore.select(
+    (state) => state.currentState
+  );
+
+  currentLambdaReactorState$ = this.lambdaReactorStore.select(
     (state) => state.currentState
   );
 
