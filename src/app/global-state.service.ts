@@ -1,16 +1,37 @@
 import { Injectable } from '@angular/core';
+import { combineLatest, map } from 'rxjs';
+import { additionReducer, roundNumber } from './arithmetic.functions';
 import { SteadyReactorStore } from './components/steady-reactor/steady-reactor.store';
+import { SwiftReactorStore } from './components/swift-reactor/swift-reactor-store';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GlobalStateService {
-
   constructor(
-    private steadyReactorStore: SteadyReactorStore
-  ) { }
+    private steadyReactorStore: SteadyReactorStore,
+    private swiftReactorStore: SwiftReactorStore
+  ) {}
 
-  currentSteadyReactorState$ = this.steadyReactorStore.select((state) => state.currentState);
+  currentSteadyReactorState$ = this.steadyReactorStore.select(
+    (state) => state.currentState
+  );
 
-  
+  currentSwiftReactorState$ = this.swiftReactorStore.select(
+    (state) => state.currentState
+  );
+
+  /**
+   * 
+   * @returns Observable of combinded values of all current reactor states
+   * roundNumber function needed to avoid js floating point bug
+   */
+  addingReactorStates() {
+    return combineLatest([
+      this.currentSteadyReactorState$,
+      this.currentSwiftReactorState$,
+    ])
+      .pipe(map((values) => values.reduce(additionReducer)))
+      .pipe(map((values) => roundNumber(values)));
+  }
 }

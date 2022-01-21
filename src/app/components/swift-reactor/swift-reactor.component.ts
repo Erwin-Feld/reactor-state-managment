@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-import { SteadyReactorStore } from './steady-reactor.store';
+import { SwiftReactorStore } from './swift-reactor-store';
 
 @Component({
-  selector: 'app-steady-reactor',
-  templateUrl: './steady-reactor.component.html',
-  styleUrls: ['./steady-reactor.component.scss']
+  selector: 'app-swift-reactor',
+  templateUrl: './swift-reactor.component.html',
+  styleUrls: ['./swift-reactor.component.scss']
 })
-export class SteadyReactorComponent implements OnInit {
+export class SwiftReactorComponent implements OnInit {
 
-  constructor(private store: SteadyReactorStore) { }
+  constructor(private store: SwiftReactorStore) { }
 
-  
-  
-  intervalSubscription!: Subscription;
+ 
+  intervalSubscription!:Subscription;
 
   storeReactorState$ = this.store.select((state) => state.currentState);
   curentReactorState!: number;
@@ -21,9 +20,8 @@ export class SteadyReactorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   startReactor() {
-    this.intervalSubscription = interval(4000).subscribe(() => {
+    this.intervalSubscription = interval(1000).subscribe(() => {
       const rndFloatNmbr = parseFloat(Math.random().toFixed(2));
       // passedRndNumbr = parseFloat(x);
       this.curentReactorState = rndFloatNmbr;
