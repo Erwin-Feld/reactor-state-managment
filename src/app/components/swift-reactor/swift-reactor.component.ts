@@ -21,7 +21,7 @@ export class SwiftReactorComponent implements OnInit {
   }
 
   startReactor() {
-    this.intervalSubscription = interval(1000).subscribe(() => {
+    this.intervalSubscription = interval(3000).subscribe(() => {
       const rndFloatNmbr = parseFloat(Math.random().toFixed(2));
       // passedRndNumbr = parseFloat(x);
       this.curentReactorState = rndFloatNmbr;

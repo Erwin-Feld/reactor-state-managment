@@ -22,6 +22,12 @@ export class LambdaReactorStore extends ComponentStore<ReactorState> {
     ...state,
     currentState: value,
   }));
+
+   getStuff(){
+    return {name: "lamba",
+            state: this.select(state => state.currentState)}
+  }
+
 }
 
 
