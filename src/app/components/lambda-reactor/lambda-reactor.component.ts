@@ -11,6 +11,8 @@ export class LambdaReactorComponent implements OnInit {
 
   constructor(private store: LambdaReactorStore) { }
 
+  reactorStatus = false;
+
   intervalSubscription!: Subscription;
 
   storeReactorState$ = this.store.select((state) => state.currentState);
@@ -28,6 +30,7 @@ export class LambdaReactorComponent implements OnInit {
       // passedRndNumbr = parseFloat(x);
       this.curentReactorState = rndFloatNmbr;
       this.store.updateState(this.curentReactorState);
+      this.reactorStatus = true;
     });
   }
 
@@ -36,6 +39,7 @@ export class LambdaReactorComponent implements OnInit {
     this.curentReactorState = 0;
     //Add is Side effect
     this.store.updateState(this.curentReactorState);
+    this.reactorStatus = false;
   }
 
 }

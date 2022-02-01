@@ -1,11 +1,22 @@
-<div class="steady-reactor">
-  <p>steady-reactor works!</p>
+<div class="steady-reactor bg-dark">
+  <h5 class="text-warning p-2">steady</h5>
 
-  <p>{{ storeReactorState$ | async }}</p>
+  <p *ngIf="reactorStatus" class="text-white">reactor Status <span class="text-success" >online</span></p>
+  <p *ngIf="!reactorStatus" class="text-white">reactor Status <span class="text-danger">offline</span></p>
 
-  <button (click)="startReactor()">start Reactor</button>
+  <p *ngIf="reactorStatus"  class="text-white">current Output <span  class="text-secondary" >{{ storeReactorState$ | async }}</span></p>
+  <p *ngIf="!reactorStatus"  class="text-white">current Output <span class="text-secondary">{{ storeReactorState$ | async }}</span></p>
 
-  <button (click)="killReactor()">shut down Reactor</button>
+  <app-steady-reactor-chart></app-steady-reactor-chart>
+
+  <div class="p-1 bg-dark">
+    <button class="btn-sm btn-outline-success" (click)="startReactor()">start</button>
+    <span>.....</span>
+    <button class="btn-sm btn-outline-danger" (click)="killReactor()">shut down</button>
+  </div>
+
+ 
 </div>
+
 
 

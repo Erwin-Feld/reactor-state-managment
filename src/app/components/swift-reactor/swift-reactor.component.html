@@ -1,10 +1,20 @@
-<div class="swift-reactor">
-    <p>swift-reactor works!</p>
-  
-    <p>{{ storeReactorState$ | async }}</p>
-  
-    <button (click)="startReactor()">start Reactor</button>
-  
-    <button (click)="killReactor()">shut down Reactor</button>
+<div class="swift-reactor bg-dark">
+    <h5 class="text-info p-2">swift</h5>
+
+    <p *ngIf="reactorStatus" class="text-white">reactor Status <span class="text-success" >online</span></p>
+    <p *ngIf="!reactorStatus" class="text-white">reactor Status <span class="text-danger">offline</span></p>
+
+    <p *ngIf="reactorStatus"  class="text-white">current Output <span  class="text-secondary" >{{ storeReactorState$ | async }}</span></p>
+    <p *ngIf="!reactorStatus"  class="text-white">current Output <span class="text-secondary">{{ storeReactorState$ | async }}</span></p>
+
+    <app-swift-reactor-chart></app-swift-reactor-chart>
+
+    <div class="p-1 bg-dark">
+      <button class="btn-sm btn-outline-success" (click)="startReactor()">start</button>
+      <span>.....</span>
+      <button class="btn-sm btn-outline-danger" (click)="killReactor()">shut down</button>
+    </div>
+
+   
   </div>
   

@@ -14,6 +14,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { ReactorSectionComponent } from './components/reactor-section/reactor-section.component';
 import { ReactorManagerSectionComponent } from './components/reactor-manager-section/reactor-manager-section.component';
 import { DescriptionSectionComponent } from './components/description-section/description-section.component';
+import { BarchartComponent } from './components/barchart/barchart.component';
+import { SwiftReactorChartComponent } from './components/swift-reactor-chart/swift-reactor-chart.component';
+import { SteadyReactorChartComponent } from './components/steady-reactor-chart/steady-reactor-chart.component';
+import { LambdaReactorChartComponent } from './components/lambda-reactor-chart/lambda-reactor-chart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { DescriptionSectionComponent } from './components/description-section/de
     HeaderComponent,
     ReactorSectionComponent,
     ReactorManagerSectionComponent,
-    DescriptionSectionComponent
+    DescriptionSectionComponent,
+    BarchartComponent,
+    SwiftReactorChartComponent,
+    SteadyReactorChartComponent,
+    LambdaReactorChartComponent
   ],
   imports: [
     BrowserModule,
