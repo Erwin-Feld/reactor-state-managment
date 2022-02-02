@@ -1,18 +1,18 @@
-<div class="lambda-reactor bg-dark">
-  <h5 class="text-primary p-2">lambda</h5>
+<div class="lambda-reactor">
+  <h5 class="text-warning p-2 text-left">---- lambda ----</h5>
 
-  <p *ngIf="reactorStatus" class="text-white">reactor Status <span class="text-success" >online</span></p>
-  <p *ngIf="!reactorStatus" class="text-white">reactor Status <span class="text-danger">offline</span></p>
+  <p *ngIf="reactorStatus" class="text-light">reactor Status: <span class="text-success" >online</span></p>
+  <p *ngIf="!reactorStatus" class="text-light">reactor Status: <span class="text-danger">offline</span></p>
 
-  <p *ngIf="reactorStatus"  class="text-white">current Output <span  class="text-secondary" >{{ storeReactorState$ | async }}</span></p>
-  <p *ngIf="!reactorStatus"  class="text-white">current Output <span class="text-secondary">{{ storeReactorState$ | async }}</span></p>
+  <p *ngIf="reactorStatus"  class="text-light">current output: <span  class="text-secondary" >{{ storeReactorState$ | async }}</span></p>
+  <p *ngIf="!reactorStatus"  class="text-light">current output: <span class="text-secondary">{{ storeReactorState$ | async }}</span></p>
 
   <app-lambda-reactor-chart></app-lambda-reactor-chart>
 
-  <div class="p-1 bg-dark">
-    <button class="btn-sm btn-outline-success" (click)="startReactor()">start</button>
-    <span>.....</span>
-    <button class="btn-sm btn-outline-danger" (click)="killReactor()">shut down</button>
+  <div class="p-1 d-flex">
+    <button class="btn-sm btn-dark btn-outline-success" (click)="startReactor()">start</button>
+    <span>...</span>
+    <button class="btn-sm btn-danger text-dark" (click)="killReactor()">shut down</button>
   </div>
 
  

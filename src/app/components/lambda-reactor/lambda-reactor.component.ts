@@ -19,7 +19,7 @@ export class LambdaReactorComponent implements OnInit {
   curentReactorState!: number;
 
   ngOnInit(): void {
-    this.startReactor()
+    // this.startReactor()
   }
 
 
