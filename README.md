@@ -7,7 +7,7 @@ each component state is unstable and changes randomly
 
 global state which contains all component states combines all component states
 
-
+https://reactor-state-managment.netlify.app/
 
 -------------------------------------------
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
