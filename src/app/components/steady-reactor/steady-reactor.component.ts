@@ -11,7 +11,7 @@ export class SteadyReactorComponent implements OnInit {
 
   constructor(private store: SteadyReactorStore) { }
 
-  
+  reactorStatus = false;
   
   intervalSubscription!: Subscription;
 
@@ -28,6 +28,7 @@ export class SteadyReactorComponent implements OnInit {
       // passedRndNumbr = parseFloat(x);
       this.curentReactorState = rndFloatNmbr;
       this.store.updateState(this.curentReactorState);
+      this.reactorStatus = true;
     });
   }
 
@@ -36,6 +37,7 @@ export class SteadyReactorComponent implements OnInit {
     this.curentReactorState = 0;
     //Add is Side effect
     this.store.updateState(this.curentReactorState);
+    this.reactorStatus = false;
   }
 
 

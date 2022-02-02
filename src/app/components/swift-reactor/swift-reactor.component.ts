@@ -11,6 +11,7 @@ export class SwiftReactorComponent implements OnInit {
 
   constructor(private store: SwiftReactorStore) { }
 
+  reactorStatus = false;
  
   intervalSubscription!:Subscription;
 
@@ -26,6 +27,7 @@ export class SwiftReactorComponent implements OnInit {
       // passedRndNumbr = parseFloat(x);
       this.curentReactorState = rndFloatNmbr;
       this.store.updateState(this.curentReactorState);
+      this.reactorStatus = true;
     });
   }
 
@@ -34,6 +36,7 @@ export class SwiftReactorComponent implements OnInit {
     this.curentReactorState = 0;
     //Add is Side effect
     this.store.updateState(this.curentReactorState);
+    this.reactorStatus = false;
   }
 
 

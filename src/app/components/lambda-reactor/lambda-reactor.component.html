@@ -1,10 +1,21 @@
 <div class="lambda-reactor">
-    <p>lambda-reactor works!</p>
-  
-    <p>{{ storeReactorState$ | async }}</p>
-  
-    <button (click)="startReactor()">start Reactor</button>
-  
-    <button (click)="killReactor()">shut down Reactor</button>
+  <h5 class="text-warning p-2 text-left">---- lambda ----</h5>
+
+  <p *ngIf="reactorStatus" class="text-light">reactor Status: <span class="text-success" >online</span></p>
+  <p *ngIf="!reactorStatus" class="text-light">reactor Status: <span class="text-danger">offline</span></p>
+
+  <p *ngIf="reactorStatus"  class="text-light">current output: <span  class="text-secondary" >{{ storeReactorState$ | async }}</span></p>
+  <p *ngIf="!reactorStatus"  class="text-light">current output: <span class="text-secondary">{{ storeReactorState$ | async }}</span></p>
+
+  <app-lambda-reactor-chart></app-lambda-reactor-chart>
+
+  <div class="p-1 d-flex">
+    <button class="btn-sm btn-dark btn-outline-success" (click)="startReactor()">start</button>
+    <span>...</span>
+    <button class="btn-sm btn-danger text-dark" (click)="killReactor()">shut down</button>
   </div>
+
+ 
+</div>
+
   
