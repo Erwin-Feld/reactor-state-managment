@@ -33,7 +33,7 @@ export class SwiftReactorChartComponent implements OnInit {
       /* siehe Colors https://github.com/valor-software/ng2-charts#readme
        */
       x: {
-        display: false /* hide x achsis */,
+        display: true /* hide x achsis */,
       },
       y: {
         min: 0.1,
@@ -46,8 +46,9 @@ export class SwiftReactorChartComponent implements OnInit {
       },
       datalabels: {
         display: false /* hide number */,
-        anchor: 'end',
-        align: 'end',
+        // anchor: 'end',
+        // align: 'center',
+        // textAlign: 'left'
       },
     },
   };
@@ -61,8 +62,10 @@ export class SwiftReactorChartComponent implements OnInit {
       {
         data: [0, 1],
         label: 'Lambda reactor current output',
-        backgroundColor: '#D3DEDC',
+        backgroundColor: '#58CE83',
         borderColor: 'rgba(148,159,177,1)',
+        barThickness: 40,
+        
       },
     ],
   };
