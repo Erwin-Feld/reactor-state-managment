@@ -1,20 +1,23 @@
-<div class="reactor-manager">
-    <h3>reactor manager</h3>
+<div class="reactor-manager text-white bg-dark p-3 rounded-left">
+ 
 
-    <p>swift reactor output <span>{{currentSwiftReactorState$ | async}}</span></p>
+  
+  
+    <p class="text-warning">lambda output: <span class="text-secondary bg-dark">{{currentLambdaReactorState$ | async}}</span></p>
 
-    <p>steady reactor output <span>{{currentSteadyReactorState$ | async}}</span></p>
+    <p class="text-info">steady output: <span class="text-secondary bg-dark">{{currentSteadyReactorState$ | async}}</span></p>
+    
+    <p class="text-danger">swift output: <span class="text-secondary bg-dark">{{currentSwiftReactorState$ | async}}</span></p>
+    <br>
 
-    <p>lambda reactor output <span>{{currentLambdaReactorState$ | async}}</span></p>
+    <p>global output: <span class="text-success bg-dark">{{globalReactorState$ | async}}</span></p>
 
-
-    <p>global output <span>{{globalReactorState$ | async}}</span></p>
-
-    <p class="col" *ngIf="globalReactorState === reactorState.LOW"> current global output <span>low</span></p>
-    <p class="col" *ngIf="globalReactorState === reactorState.NORMAL"> normal</p>
-    <p class="col" *ngIf="globalReactorState === reactorState.OVERHEATING"> overheating</p>
+    
 </div>
 
 
 
 
+<!-- <p class="col" *ngIf="globalReactorState === reactorState.LOW"> current global output <span>low</span></p>
+    <p class="col" *ngIf="globalReactorState === reactorState.NORMAL"> normal</p>
+    <p class="col" *ngIf="globalReactorState === reactorState.OVERHEATING"> overheating</p> -->
